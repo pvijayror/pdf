@@ -22,4 +22,7 @@
 
 <br />
 
+<%#= render :partial => 'documents/xmldata' %>
+<%= link_to 'Download', documents_path(:format => :pdf) %>
+
 <%= link_to 'New Document', new_document_path %>
