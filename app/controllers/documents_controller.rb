@@ -1,13 +1,31 @@
+
 class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
     @documents = Document.all
 
+    require "rexml/document"
+    file = File.open("#{Rails.root}/public/files/test.xml", "r")
+    xml = file.read
+
+    @result = Hash.from_xml(xml)["message"]["param"].inject({}) do |result, elem|
+               result[elem["name"]] = elem["value"]
+               result
+              end
+
+    #doc = REXML::Document.new(xml)
+
+   # render :text => @result
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @documents }
+      format.pdf {render :pdf =>  "data.pdf", :layout => 'layouts/pdf', :template => '/documents/_xmldata.html'}
+
     end
+
+
   end
 
   # GET /documents/1
@@ -23,6 +41,12 @@ class DocumentsController < ApplicationController
   end
   def show_pdf
     render :pdf => "file.pdf", :layout => false, :template => '/documents/show_pdf'
+  end
+
+
+
+   def xmldata_pdf
+      render :pdf => "xmlfile.pdf", :layout => false, :template => '/documents/xmldata_pdf'
   end
 
   # GET /documents/new
