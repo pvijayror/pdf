@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message>
+  <param>
+    <name>messageType</name>
+    <value>SMS</value>
+  </param>
+  <param>
+    <name>id</name>
+    <value>xxxxxxxxxxxxxx</value>
+  </param>
+  <param>
+    <name>source</name>
+    <value>xxxxxxxxxxx</value>
+  </param>
+  <param>
+    <name>target</name>
+    <value>xxxxxxxxxxxxx</value>
+  </param>
+  <param>
+    <name>msg</name>
+    <value>xxxxxxxxxxxxx</value>
+  </param>
+  <param>
+    <name>hello</name>
+    <value>test</value>
+  </param>
+</message>
